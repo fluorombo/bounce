@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+            html, body {
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+            }
+
+            #ball{
+                width: 20px;
+                height: 20px;
+                background: linear-gradient(45deg, #000, #fff);
+                border-radius: 20px;
+                position: absolute;
+                top: calc(50% - 10px);
+                left: calc(50% - 10px);
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="ball" draggable="false"></div>
+        <script>
+
+            const g = 9.81
+            const ball = document.getElementById("ball")
+            const b = window.innerWidth
+            const h = window.innerHeight
+            var body = document.getElementsByTagName("body")[0]
+            
+            var wasClicked = false
+
+            function vector(pos, coords) {
+                
+            }
+
+            ball.addEventListener("mousedown", function (point) {
+                ball.style.left = point.pageX - 10 + "px"
+                ball.style.top = point.pageY - 10 + "px"
+                wasClicked = true
+            })
+
+            body.addEventListener("mousemove", function (point) {
+                if (wasClicked == true) {
+                    ball.style.left = point.pageX - 10 + "px"
+                    ball.style.top = point.pageY - 10 + "px"
+                    x1 = point.pageX - 10 + "px"
+                    y1 = point.pageY - 10 + "px"
+                }
+            })
+
+            body.addEventListener("mouseup", function (point) {
+                if (wasClicked == true) {
+                    ball.style.left = point.pageX - 10 + "px"
+                    ball.style.top = point.pageY - 10 + "px"
+                    wasClicked = false
+                }
+            })
+            
+            
+        </script>
+    </body>
+</html>
